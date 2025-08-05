@@ -21,6 +21,7 @@ import torch.nn.modules.normalization
 from ultralytics.nn.modules.block import C2f,Bottleneck,SPPF
 from ultralytics.nn.modules.conv import Conv,Concat
 from ultralytics.nn.tasks import DetectionModel
+from ultralytics.nn.modules.head import Detect
 
 add_safe_globals([
     torch.nn.modules.activation.SiLU,
@@ -40,6 +41,7 @@ add_safe_globals([
     DetectionModel,
     Bottleneck,
     SPPF,
+    Detect,
 ])
 
 
