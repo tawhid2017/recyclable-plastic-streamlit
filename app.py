@@ -4,11 +4,12 @@ import torch
 import torch.serialization  # ✅ Fix starts here
 from ultralytics.nn.tasks import DetectionModel
 from torch.nn.modules.container import Sequential
+from ultralytics.nn.modules.conv import Conv
 from ultralytics import YOLO
 import os
 
 # Allow YOLO model class to be unpickled safely
-torch.serialization.add_safe_globals([DetectionModel,Sequential])
+torch.serialization.add_safe_globals([DetectionModel,Sequential,Conv])
 
 st.set_page_config(page_title="Plastic Detection with YOLOv8")
 
