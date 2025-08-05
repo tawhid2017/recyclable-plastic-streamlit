@@ -18,7 +18,7 @@ import torch.nn.modules.padding
 import torch.nn.modules.normalization
 
 # YOLO-specific modules
-from ultralytics.nn.modules.block import C2f
+from ultralytics.nn.modules.block import C2f,Bottleneck
 from ultralytics.nn.modules.conv import Conv
 from ultralytics.nn.tasks import DetectionModel
 
@@ -37,7 +37,7 @@ add_safe_globals([
     C2f,
     Conv,
     DetectionModel,
-
+    Bottleneck,
 ])
 
 
