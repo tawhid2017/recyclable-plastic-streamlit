@@ -27,6 +27,8 @@ add_safe_globals([
     torch.nn.modules.batchnorm.BatchNorm2d,
     torch.nn.modules.conv.Conv2d,
     torch.nn.modules.container.Sequential,
+    torch.nn.modules.container.ModuleList,
+    torch.nn.modules.container.ModuleDict,
     torch.nn.modules.pooling.MaxPool2d,
     torch.nn.modules.upsampling.Upsample,
     torch.nn.modules.linear.Linear,
@@ -35,6 +37,7 @@ add_safe_globals([
     C2f,
     Conv,
     DetectionModel,
+
 ])
 
 
