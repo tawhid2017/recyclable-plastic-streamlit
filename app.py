@@ -5,6 +5,7 @@ import torch
 import os
 
 # ✅ Patch to prevent UnpicklingError for YOLOv8 weights
+# Patch to safely unpickle YOLOv8 .pt weights in PyTorch ≥ 2.6
 from torch.serialization import add_safe_globals
 import torch.nn.modules.activation
 import torch.nn.modules.batchnorm
@@ -16,6 +17,11 @@ import torch.nn.modules.upsampling
 import torch.nn.modules.padding
 import torch.nn.modules.normalization
 
+# YOLO-specific modules
+from ultralytics.nn.modules.block import C2f
+from ultralytics.nn.modules.conv import Conv
+from ultralytics.nn.tasks import DetectionModel
+
 add_safe_globals([
     torch.nn.modules.activation.SiLU,
     torch.nn.modules.batchnorm.BatchNorm2d,
@@ -25,8 +31,12 @@ add_safe_globals([
     torch.nn.modules.upsampling.Upsample,
     torch.nn.modules.linear.Linear,
     torch.nn.modules.padding.ConstantPad2d,
-    torch.nn.modules.normalization.LayerNorm
+    torch.nn.modules.normalization.LayerNorm,
+    C2f,
+    Conv,
+    DetectionModel,
 ])
+
 
 st.set_page_config(page_title="Plastic Detection with YOLOv8")
 st.title("♻️ Recyclable Plastic Detection with YOLOv8")
