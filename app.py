@@ -19,7 +19,7 @@ import torch.nn.modules.normalization
 
 # YOLO-specific modules
 from ultralytics.nn.modules.block import C2f,Bottleneck,SPPF
-from ultralytics.nn.modules.conv import Conv
+from ultralytics.nn.modules.conv import Conv,Concat
 from ultralytics.nn.tasks import DetectionModel
 
 add_safe_globals([
@@ -36,6 +36,7 @@ add_safe_globals([
     torch.nn.modules.normalization.LayerNorm,
     C2f,
     Conv,
+    Concat,
     DetectionModel,
     Bottleneck,
     SPPF,
